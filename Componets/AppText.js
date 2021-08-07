@@ -7,10 +7,21 @@ function AppText({ children }) {
     );
 }
 
+
+
 export default AppText;
 const styles = StyleSheet.create({
     text: {
-        fontsize: 18,
-        fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir"
+        color:"tomato",
+        ...Platform.select({
+            ios: {
+                fontsize: 20,
+                fontFamily: "Avenir"
+            },
+            android: {
+                fontsize: 18,
+                fontFamily: "Roboto"
+            }
+        })
     }
 })

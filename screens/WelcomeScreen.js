@@ -1,9 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text,ImageBackground, View, Image, StatusBar,Button} from 'react-native';
+import AppButton from '../Componets/AppButton';
 import colors from '../config/colors';
 function WelcomeScreen(props) {
     return (
-        <ImageBackground source={require("../assets/background.jpg")} style={styles.backGround}>
+        <ImageBackground blurRadius={10} source={require("../assets/background.jpg")} style={styles.backGround}>
             <View style={styles.container}>
                 <View style={styles.imgContainer}>
                     <Image source={require("../assets/logo-red.png")} style={styles.logo}>
@@ -12,8 +13,8 @@ function WelcomeScreen(props) {
                 </View>
             </View>
             <View style={styles.buttonContainer}>
-                <Button style={styles.buttonLgn} color={colors.primary} title="Login"></Button>
-                <Button style={styles.buttonSignIn} color ={colors.secondry} title="Sign In"></Button>
+                <AppButton title="Login"></AppButton>
+                <AppButton title="Register" color="secondary"></AppButton>
             </View>
         </ImageBackground>
     );
@@ -45,15 +46,8 @@ const styles = StyleSheet.create({
     buttonContainer: {
         padding: 20,
         width: "100%"
-    },
-    buttonLgn:{
-        width:"100%",
-        backgroundColor: "#2a9d8f"
-    },
-    buttonSignIn: {
-        width: "100%",
-        backgroundColor: "#e9c46a"
     }
+    
 })
 
 export default WelcomeScreen;
