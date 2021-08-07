@@ -1,13 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text,ImageBackground, View, Image, StatusBar,Button} from 'react-native';
+import color from '../config/colors'
 function ImageViewer(props) { 
     return (
         <View style={styles.container}>
             <View style={styles.btnClose}>
-                <Button title="Close" color="#f4a261" ></Button>
+                <Button title="Close" color={color.primary} ></Button>
             </View>
             <View style={styles.deleteIcon}>
-                <Button title="Delete" color="#e76f51"></Button>
+                <Button title="Delete" color={color.secondry}></Button>
             </View>
             <Image resizeMode="contain"
             style={styles.image}

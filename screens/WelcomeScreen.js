@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text,ImageBackground, View, Image, StatusBar,Button} from 'react-native';
+import colors from '../config/colors';
 function WelcomeScreen(props) {
     return (
         <ImageBackground source={require("../assets/background.jpg")} style={styles.backGround}>
@@ -11,8 +12,8 @@ function WelcomeScreen(props) {
                 </View>
             </View>
             <View style={styles.buttonContainer}>
-                <Button style={styles.buttonLgn} color="#2a9d8f" title="Login"></Button>
-                <Button style={styles.buttonSignIn} color ="#e9c46a" title="Sign In"></Button>
+                <Button style={styles.buttonLgn} color={colors.primary} title="Login"></Button>
+                <Button style={styles.buttonSignIn} color ={colors.secondry} title="Sign In"></Button>
             </View>
         </ImageBackground>
     );
