@@ -11,8 +11,8 @@ function WelcomeScreen(props) {
                 </View>
             </View>
             <View style={styles.buttonContainer}>
-                <Button style={styles.buttonLgn} title="Login"></Button>
-                <Button style={styles.buttonSignIn} title="Sign In"></Button>
+                <Button style={styles.buttonLgn} color="#2a9d8f" title="Login"></Button>
+                <Button style={styles.buttonSignIn} color ="#e9c46a" title="Sign In"></Button>
             </View>
         </ImageBackground>
     );
