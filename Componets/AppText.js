@@ -1,9 +1,10 @@
 import React from 'react';
-import { Platform, Text } from 'react-native';
+import { Platform, Text ,StyleSheet} from 'react-native';
+import colors from '../config/colors';
 
-function AppText({ children }) {
+function AppText({ children, style }) {
     return (
-        <Text style={ styles.text}>{children}</Text>
+        <Text style={ [styles.text, style]}>{children}</Text>
     );
 }
 
@@ -12,14 +13,14 @@ function AppText({ children }) {
 export default AppText;
 const styles = StyleSheet.create({
     text: {
-        color:"tomato",
+        color:colors.black,
         ...Platform.select({
             ios: {
-                fontsize: 20,
+                fontSize: 20,
                 fontFamily: "Avenir"
             },
             android: {
-                fontsize: 18,
+                fontSize: 18,
                 fontFamily: "Roboto"
             }
         })

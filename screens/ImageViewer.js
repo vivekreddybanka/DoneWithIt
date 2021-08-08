@@ -1,14 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text,ImageBackground, View, Image, StatusBar,Button} from 'react-native';
 import color from '../config/colors'
+import {MaterialCommunityIcons} from '@expo/vector-icons'
 function ImageViewer(props) { 
     return (
         <View style={styles.container}>
             <View style={styles.btnClose}>
-                <Button title="Close" color={color.primary} ></Button>
+               <MaterialCommunityIcons name="close" color="white" size={35}></MaterialCommunityIcons>
             </View>
             <View style={styles.deleteIcon}>
-                <Button title="Delete" color={color.secondry}></Button>
+                <MaterialCommunityIcons name="trash-can-outline" color="white" size={35}></MaterialCommunityIcons>
             </View>
             <Image resizeMode="contain"
             style={styles.image}
