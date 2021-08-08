@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet} from 'react-native';
-import AccountScreen from './screens/AccountScreen';
+import ListingScreen from './screens/ListingScreen';
 export default function App() {
   return (
-   <AccountScreen></AccountScreen>
+    <ListingScreen></ListingScreen>
   );
 }
 
