@@ -5,17 +5,11 @@ import WelcomeScreen  from './screens/WelcomeScreen';
 import ImageViewer from './screens/ImageViewer';
 import AppButton from './Componets/AppButton';
 import ListingDetailsScreen from './screens/ListingDetailsScreen';
+import MessagesScreen from './screens/MessagesScreen';
 export default function App() {
   return (
     <View style={styles.containerTemp}>
-       {/* <WelcomeScreen/> */}
-       {/* <ImageViewer/> */}
-       {/* <Card
-        title="Red jacket for sale"
-        subtitle="$100"
-        image={require("./assets/jacket.jpg")}
-       ></Card> */}
-      <ListingDetailsScreen></ListingDetailsScreen>
+      <MessagesScreen/>
     </View>
   );
 }
