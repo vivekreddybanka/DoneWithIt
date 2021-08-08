@@ -8,7 +8,7 @@ import ListingDetailsScreen from './screens/ListingDetailsScreen';
 import MessagesScreen from './screens/MessagesScreen';
 export default function App() {
   return (
-    <View style={styles.containerTemp}>
+    <View style={styles.container}>
       <MessagesScreen/>
     </View>
   );
@@ -17,10 +17,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1
-  },
-  containerTemp: {
-    backgroundColor: '#f8f4f4',
-    padding:20,
-    paddingTop:100
   }
 });

@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         fontWeight: "500"
     },
     subtitle: {
-        color: colors.medium
+        color: colors.black
     }
 })
 
