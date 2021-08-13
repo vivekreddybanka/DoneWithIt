@@ -6,7 +6,7 @@ import {text} from '../config/styles'
 import AppText from './AppText';
 import Screen from './Screen';
 import PickerItem from './PickerItem';
-function AppPicker({icon, placeHolder,items, onSelectItem, selectedItem }) {
+function AppPicker({icon, placeHolder,items, onSelectItem, PickerItemComponent = PickerItem, selectedItem }) {
     const [modalvisable, setModalVisiable] = useState(false);
     return (
         <React.Fragment>
@@ -22,7 +22,7 @@ function AppPicker({icon, placeHolder,items, onSelectItem, selectedItem }) {
                     <Button title="Close" onPress={() => setModalVisiable(false)}></Button>
                     <FlatList data={items}
                         keyExtractor={item => item.value.toString()}
-                        renderItem={({item}) => <PickerItem label={item.label} onPress={() =>  {setModalVisiable(false); onSelectItem(item); console.log("Item is selected")}}   ></PickerItem>}
+                        renderItem={({item}) => <PickerItemComponent label={item.label} onPress={() =>  {setModalVisiable(false); onSelectItem(item); console.log("Item is selected")}}></PickerItemComponent>}
                     ></FlatList>
                 </Screen>
             </Modal>
