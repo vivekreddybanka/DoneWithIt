@@ -27,7 +27,7 @@ function ListingScreen(props) {
             subtitle= { "$" + item.price}
             image={item.image}
         />
-    );
+    ); 
     return (
        <Screen style={styles.screen}>
            <FlatList
