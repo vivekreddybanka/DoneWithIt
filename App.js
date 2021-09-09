@@ -1,12 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, Switch, TextInput} from 'react-native';
-import ListingScreen from './screens/ListingScreen';
-import MessagesScreen from "./screens/MessagesScreen"
+import React, { useEffect, useState } from 'react';
+import {  Button, StyleSheet, Image} from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
+import Screen from './Componets/Screen';
+import * as Permissions from 'expo-permissions';
+import ImageInput from './Componets/ImageInput';
+
 
 export default function App() {
+  const [imageUri, SetImageUri] = useState();
+
+
+  
   return (
-    <MessagesScreen/>
+    <Screen>
+      <ImageInput onChangeImage={ (uri)  => (SetImageUri(uri))} imageUri={imageUri}/>
+    </Screen>
+    // <MessagesScreen/>
   )
 }
 
