@@ -5,16 +5,29 @@ import * as ImagePicker from 'expo-image-picker';
 import Screen from './Componets/Screen';
 import * as Permissions from 'expo-permissions';
 import ImageInput from './Componets/ImageInput';
+import ImageInputList from './Componets/ImageInputList';
 
 
 export default function App() {
-  const [imageUri, SetImageUri] = useState();
+  const [imageUris, SetImageUris] = useState([]);
+  const [imgUrl, SetImgUrl] = useState();
 
-
+  const handleAddImages = (uri) => {
+    SetImageUris([...imageUris, uri]);
+  }
+  const handleRemoveImage = (uri) => {
+    SetImageUris(imageUris.filter((imageuri) => imageuri !== uri));
+  }
   
+  // const onchangeImg = (uri) => {
+  //   SetImgUrl(uri)
+  // }
   return (
     <Screen>
-      <ImageInput onChangeImage={ (uri)  => (SetImageUri(uri))} imageUri={imageUri}/>
+      <ImageInputList ImageUris = { imageUris } 
+        OnAddImage= { handleAddImages}
+        onRemoveImage = {handleRemoveImage}
+      ></ImageInputList>
     </Screen>
     // <MessagesScreen/>
   )
