@@ -5,7 +5,7 @@ import * as ImagePicker from 'expo-image-picker';
 import Screen from './Componets/Screen';
 import * as Permissions from 'expo-permissions';
 import ImageInput from './Componets/ImageInput';
-import ImageInputList from './Componets/ImageInputList';
+import ImageInputList from './Componets/ImageInputList';  
 
 
 export default function App() {
