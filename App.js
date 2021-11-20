@@ -9,6 +9,7 @@ import ImageInputList from './Componets/ImageInputList';
 import { screensEnabled } from 'react-native-screens';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tweets = ({ navigation }) => {
   return <Screen>
@@ -16,32 +17,61 @@ const Tweets = ({ navigation }) => {
         Tweets
     </Text>
     <Button title="View Tweets"
-      onPress= { () => navigation.navigate('TweetsDetails')}
+      onPress= { () => navigation.navigate('TweetsDetails', { id: 1})}
     >
 
     </Button>
   </Screen>
 }
-const TweetDetail = () => {
+const TweetDetail = ({ route }) => {
   return <Screen>
     <Text>
-         Tweet Details
+         Tweet Details {route.params.id}
     </Text>
   </Screen>
 }
 
 const Stack = createStackNavigator();
 const StackNavigator = () => (
-  <Stack.Navigator>
-    <Stack.Screen name="Tweets" component={Tweets} />
+  <Stack.Navigator
+    screenOptions={{
+      headerStyle: {backgroundColor:'dodgerblue'},
+      headerTintColor: 'white',
+    }}
+    >
+    <Stack.Screen name="Tweets" options={{
+      title: "Tweet Details"
+    }} component={Tweets} />
     <Stack.Screen name="TweetsDetails"  component = { TweetDetail } />
   </Stack.Navigator>
 ) 
+const Account = () => {
+  return <Screen>
+    <Text>
+      Account
+    </Text>
+  </Screen> 
+}
+
+const AccountDetail = () => {
+  return <Screen>
+    <Text>
+      AccountDetails
+    </Text>
+  </Screen>
+}
+const Tab = createBottomTabNavigator();
+const TabNavigator = () => {
+  return <Tab.Navigator>
+    <Tab.Screen name='Account' component={Account} ></Tab.Screen>
+    <Tab.Screen name= 'AccountDetails' component= {AccountDetail} />
+  </Tab.Navigator>
+}
 
 export default function App() {
   return (
     <NavigationContainer>
-      <StackNavigator/>
+      <TabNavigator/>
     </NavigationContainer>
   );
   // const [imageUris, SetImageUris] = useState([]);
