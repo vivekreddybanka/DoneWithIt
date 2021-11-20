@@ -47,7 +47,7 @@ function AppPicker({
           <MaterialCommunityIcons
             name="chevron-down"
             size={20}
-            color={defaultStyles.colors.medium}
+            color="#6e6969"
           />
         </View>
       </TouchableWithoutFeedback>

@@ -7,11 +7,13 @@ import * as Permissions from 'expo-permissions';
 import AuthNavigator from './navigation/AuthNavigator';
 import { NavigationContainer } from '@react-navigation/native';
 import navigationTheme from './navigation/navigationTheme';
+import AppNavigator from './navigation/AppNavigator';
 
 export default function App() {
   return (
     <NavigationContainer theme={navigationTheme}>
-        <AuthNavigator></AuthNavigator>
+        {/* <AuthNavigator></AuthNavigator> */}
+        <AppNavigator></AppNavigator>
     </NavigationContainer>
   );
   // const [imageUris, SetImageUris] = useState([]);

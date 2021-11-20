@@ -8,13 +8,14 @@ import Screen from './Screen';
 import PickerItem from './PickerItem';
 function AppPicker({icon, placeHolder,items, onSelectItem, PickerItemComponent = PickerItem, selectedItem }) {
     const [modalvisable, setModalVisiable] = useState(false);
+    console.log(colors)
     return (
         <React.Fragment>
             <TouchableWithoutFeedback onPress={() => setModalVisiable(!modalvisable)}>
                 <View style = {styles.container}> 
-                    {icon && <MaterialCommunityIcons name= {icon} size={20}  color={colors.medium} style={styles.icon}/>}
+                    {icon && <MaterialCommunityIcons name= {icon} size={20}  color="#6e6969" style={styles.icon}/>}
                     <AppText style={styles.text}>{selectedItem? selectedItem.label : placeHolder}</AppText>
-                    <MaterialCommunityIcons name= "chevron-down" size={20}  color={colors.medium} />
+                    <MaterialCommunityIcons name= "chevron-down" size={20}  color="#6e6969" />
                 </View>
             </TouchableWithoutFeedback>
             <Modal visible={modalvisable} animationType="slide">
