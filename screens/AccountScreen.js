@@ -18,16 +18,18 @@ const menuItems = [
         icon: {
             name: "format-list-bulleted",
             backgroundColor: colors.secondary
-        }
+        },
+        tagetScreen: 'MessagesScreen'
     }
 ]
-function AccountScreen(props) {
+function AccountScreen({navigation}) {
 
     const renderItem = ({ item }) => (
         <ListItem 
             title={item.title}
             subtitle= {item.description}
             IconComponet={<Icon name={item.icon.name} backgroundColor={item.icon.backgroundColor}></Icon>}
+            onPress= {() => navigation.navigate(item.tagetScreen)}
         />
     );
 

@@ -19,13 +19,14 @@ const Listing = [
     }
 ]
 
-function ListingScreen(props) {
+function ListingScreen({ navigation }) {
 
     const renderItem = ({ item }) => (
         <Card 
             title={item.title}
             subtitle= { "$" + item.price}
             image={item.image}
+            onPress = { () => navigation.navigate('ListingDetails', item )}
         />
     ); 
     return (
