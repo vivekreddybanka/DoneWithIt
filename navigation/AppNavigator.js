@@ -7,6 +7,7 @@ import FeedNavigator from "./FeedNavigator";
 import AccountNavigation from "./AccountNavigation";
 import TabBarIcon from "../Componets/TabBarIcons";
 import NewListingButton from "./NewListingButton";
+import route from "./route";
 
 const Tabs = new createBottomTabNavigator();
 const AppNavigator = () => {
@@ -20,7 +21,7 @@ const AppNavigator = () => {
         <Tabs.Screen name = "ListingEdit" component={ListingEditScreen}
             options={ ({navigation})  => ({
                 tabBarButton: () => (
-                    <NewListingButton onPress = {() => navigation.navigate("ListingEdit")}/>
+                    <NewListingButton onPress = {() => navigation.navigate(route.ListingEdit)}/>
                 ),
                 tabBarIcon:({focused, tintColor})=>(  
                     <TabBarIcon name="plus-circle" focused= {focused} color={tintColor} size={25}/>  
