@@ -18,14 +18,14 @@ const AppNavigator = () => {
             )  
           }}/>
         <Tabs.Screen name = "ListingEdit" component={ListingEditScreen}
-            options={{
+            options={ ({navigation})  => ({
                 tabBarButton: () => (
-                    <NewListingButton/>
+                    <NewListingButton onPress = {() => navigation.navigate("ListingEdit")}/>
                 ),
                 tabBarIcon:({focused, tintColor})=>(  
                     <TabBarIcon name="plus-circle" focused= {focused} color={tintColor} size={25}/>  
                 )  
-              }}
+              })}
         />
         <Tabs.Screen name = "Account" component={AccountNavigation}
         options={{
