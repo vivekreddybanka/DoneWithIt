@@ -5,12 +5,14 @@ import Card from "../Componets/Card"
 import colors from '../config/colors';
 import route from '../navigation/route';
 import listings from '../api/listings';
+import AppText from '../Componets/AppText';
 
 
 
 function ListingScreen({ navigation }) {
 
     const [listingsData, setListings] = useState([]);
+    const [error, setError] = useState(false);
     useEffect(() => {
         LoadListing();
     },[])
@@ -18,7 +20,12 @@ function ListingScreen({ navigation }) {
     const LoadListing = async () => {
         
         const response = await listings.getListings()
-        setListings(response.data);
+        if(!response.ok) {
+            setError(true)
+        } else {
+            setError(false);
+            setListings(response.data);
+        }
     }
     const renderItem = ({ item }) => (
         <Card 
@@ -30,6 +37,9 @@ function ListingScreen({ navigation }) {
     ); 
     return (
        <Screen style={styles.screen}>
+           {error && < >
+            <AppText> Couldnot retrieve the data.</AppText>
+           </>}
            <FlatList
             data={listingsData}
             keyExtractor={listing => listing.id.toString()}
