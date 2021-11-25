@@ -8,7 +8,7 @@ function Card({title, subtitle,image, onPress}) {
     return (
         <TouchableWithoutFeedback onPress={onPress}>
             <View style={styles.Card}>
-                <Image source={image} style={ styles.image }/>
+                <Image source={{uri:image}} style={ styles.image }/>
                 <View style={styles.detailsContainer}>
                     <AppText style={styles.title}>{title}</AppText>
                     <AppText style={styles.subtitle}>{subtitle}</AppText>
