@@ -1,32 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import {View, StyleSheet, FlatList} from 'react-native'
+import {View, StyleSheet, FlatList, ActivityIndicator} from 'react-native'
 import Screen from '../Componets/Screen';
 import Card from "../Componets/Card"
 import colors from '../config/colors';
 import route from '../navigation/route';
 import listings from '../api/listings';
 import AppText from '../Componets/AppText';
-
+import useApi from '../hooks/useApi';
 
 
 function ListingScreen({ navigation }) {
-
-    const [listingsData, setListings] = useState([]);
-    const [error, setError] = useState(false);
+    console.log(useApi(listings.getListings))
+    const {data: listingsData, error,request : LoadListing} = useApi(listings.getListings);
     useEffect(() => {
         LoadListing();
     },[])
 
-    const LoadListing = async () => {
-        
-        const response = await listings.getListings()
-        if(!response.ok) {
-            setError(true)
-        } else {
-            setError(false);
-            setListings(response.data);
-        }
-    }
+    
     const renderItem = ({ item }) => (
         <Card 
             title={item.title}
@@ -36,7 +26,7 @@ function ListingScreen({ navigation }) {
         />
     ); 
     return (
-       <Screen style={styles.screen}>
+       <Screen style={styles.screen}> 
            {error && < >
             <AppText> Couldnot retrieve the data.</AppText>
            </>}
