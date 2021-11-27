@@ -8,7 +8,6 @@ import Screen from './Screen';
 import PickerItem from './PickerItem';
 function AppPicker({icon, placeHolder,items, onSelectItem, PickerItemComponent = PickerItem, selectedItem }) {
     const [modalvisable, setModalVisiable] = useState(false);
-    console.log(colors)
     return (
         <React.Fragment>
             <TouchableWithoutFeedback onPress={() => setModalVisiable(!modalvisable)}>
