@@ -6,16 +6,19 @@ import navigationTheme from './navigation/navigationTheme';
 import AppNavigator from './navigation/AppNavigator';
 import AuthNavigator from './navigation/AuthNavigator';
 import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
+import AuthContext from './auth/context';
 
 export default function App() {
+  const [user, setUser] = useState();
   // const netinfo = useNetInfo();
 
   // console.log(netinfo)
   return (
-    <NavigationContainer theme={navigationTheme}>
-        <AuthNavigator></AuthNavigator>
-        {/* <AppNavigator></AppNavigator> */}
-    </NavigationContainer>
+    <AuthContext.Provider value={{user, setUser}}>
+        <NavigationContainer theme={navigationTheme}>
+          { user ? <AppNavigator/>:<AuthNavigator/> }
+      </NavigationContainer>
+    </AuthContext.Provider>
   );
   
 }
