@@ -4,6 +4,7 @@ import {  Button, StyleSheet, Image, Text} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import navigationTheme from './navigation/navigationTheme';
 import AppNavigator from './navigation/AppNavigator';
+import AuthNavigator from './navigation/AuthNavigator';
 import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
 
 export default function App() {
@@ -12,8 +13,8 @@ export default function App() {
   // console.log(netinfo)
   return (
     <NavigationContainer theme={navigationTheme}>
-        {/* <AuthNavigator></AuthNavigator> */}
-        <AppNavigator></AppNavigator>
+        <AuthNavigator></AuthNavigator>
+        {/* <AppNavigator></AppNavigator> */}
     </NavigationContainer>
   );
   
