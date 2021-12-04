@@ -6,10 +6,8 @@ import Screen from "../Componets/Screen";
 import { ErrorMessage, Form, FormField, SubmitButton } from "../Componets/forms";
 import authApi from "../api/auth";
 import { useState } from "react/cjs/react.development";
-import jwtDecode from "jwt-decode";
-import AuthContext from "../auth/context";
-import authStorage from '../auth/storage'
-
+// import jwtDecode from "jwt-decode";
+import useAuth from "../auth/useAuth";
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(4).label("Password"),
@@ -17,14 +15,13 @@ const validationSchema = Yup.object().shape({
 
 
 function LoginScreen(props) {
-  const authContext =  useContext(AuthContext)
+  const { logIn } = useAuth()
+
   const handleSubmit = async ({email, password}) => {
     const result = await authApi.login(email, password) 
     if(!result.ok) return SetLoginFailed(true);
     SetLoginFailed(false);
-    const user = jwtDecode(result.data)
-    authContext.setUser(user);
-    authStorage.storeToke(result.data);
+    logIn(result.data)
   }
   const  [loginFailed, SetLoginFailed] = useState(false);
 

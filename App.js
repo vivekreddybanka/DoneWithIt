@@ -5,10 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import navigationTheme from './navigation/navigationTheme';
 import AppNavigator from './navigation/AppNavigator';
 import AuthNavigator from './navigation/AuthNavigator';
-import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
 import AuthContext from './auth/context';
 import authStorage from './auth/storage';
-import jwtDecode from 'jwt-decode';
 import AppLoading from 'expo-app-loading';
 
 export default function App() {
@@ -16,17 +14,13 @@ export default function App() {
   const [ready, setReady] = useState(false);
 
   // const netinfo = useNetInfo();
-  const restoreToken = async() => {
-    const token = await authStorage.getToken()
-    if(token) {
-      return setUser(jwtDecode(token));
-    } else {
-      return
-    }
+  const restoreUser = async() => {
+    const user = await authStorage.getUser()
+    if(user) setUser(user)
   }
   
   if(!ready)
-    return <AppLoading startAsync={restoreToken} onFinish={() => {setReady(true)}}  onError={console.warn}/>
+    return <AppLoading startAsync={restoreUser} onFinish={() => {setReady(true)}}  onError={console.warn}/>
 
   // console.log(netinfo)
   return (
