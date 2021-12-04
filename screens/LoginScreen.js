@@ -8,6 +8,7 @@ import authApi from "../api/auth";
 import { useState } from "react/cjs/react.development";
 import jwtDecode from "jwt-decode";
 import AuthContext from "../auth/context";
+import authStorage from '../auth/storage'
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -23,7 +24,7 @@ function LoginScreen(props) {
     SetLoginFailed(false);
     const user = jwtDecode(result.data)
     authContext.setUser(user);
-    console.log(user);
+    authStorage.storeToke(result.data);
   }
   const  [loginFailed, SetLoginFailed] = useState(false);
 

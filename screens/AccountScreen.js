@@ -6,6 +6,8 @@ import colors from '../config/colors';
 import Icon from '../Componets/Icon';
 import ListItemSeparater from "../Componets/ListItemSeparater";
 import AuthContext from '../auth/context';
+import authStorage from '../auth/storage'
+
 const menuItems = [
     {
         title: "My Listing",
@@ -34,7 +36,10 @@ function AccountScreen({navigation}) {
             onPress= {() => navigation.navigate(item.tagetScreen)}
         />
     );
-
+    const handleLogOut = () => {
+        setUser(null)
+        authStorage.removeToken();
+    }
     return (
         <Screen style={styles.screen}>
             <View style={styles.container}>
@@ -58,9 +63,8 @@ function AccountScreen({navigation}) {
                     IconComponet = {
                         <Icon name="logout" backgroundColor="#ffe66d"></Icon>
                     }
-                    onPress={() => setUser(null)}
+                    onPress={() => handleLogOut()}
                 >
-
                 </ListItem>
             </View>
         </Screen>
